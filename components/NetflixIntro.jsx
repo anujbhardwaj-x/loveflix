@@ -1,52 +1,36 @@
+
 "use client"
 
-import { useEffect } from "react"
-import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
 
 export default function NetflixIntro({ finish }) {
 
-useEffect(() => {
+const [started,setStarted] = useState(false)
+
+useEffect(()=>{
+
+if(!started) return
 
 const audio = new Audio("/sounds/tudum.mp3")
-audio.volume = 0.7
-audio.play()
+audio.volume = 0.9
+audio.play().catch(()=>{})
 
-setTimeout(() => {
+setTimeout(()=>{
 finish()
-}, 3200)
+},3000)
 
-}, [])
+},[started])
 
-return (
+return(
+<div
+className="fixed inset-0 bg-black flex items-center justify-center z-50"
+onClick={()=>setStarted(true)}
+>
 
-<div className="fixed inset-0 bg-black flex items-center justify-center z-50 overflow-hidden">
-
-{/* Left bar */}
-<motion.div
-initial={{ height: 0 }}
-animate={{ height: "200px" }}
-transition={{ duration: 0.6 }}
-className="w-6 bg-red-600 absolute left-[45%]"
-/>
-
-{/* Diagonal bar */}
-<motion.div
-initial={{ height: 0, rotate: 20 }}
-animate={{ height: "200px", rotate: 20 }}
-transition={{ duration: 0.6, delay: 0.3 }}
-className="w-6 bg-red-600 absolute"
-/>
-
-{/* Right bar */}
-<motion.div
-initial={{ height: 0 }}
-animate={{ height: "200px" }}
-transition={{ duration: 0.6, delay: 0.6 }}
-className="w-6 bg-red-600 absolute right-[45%]"
-/>
+<h1 className="text-red-600 text-8xl font-extrabold tracking-widest animate-pulse">
+Love &lt;3
+</h1>
 
 </div>
-
 )
-
 }
