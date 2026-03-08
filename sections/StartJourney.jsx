@@ -1,33 +1,43 @@
 
 "use client"
-import {useState} from "react"
-import {useRouter} from "next/navigation"
 
-export default function StartJourney(){
+import { useState } from "react"
+import { useRouter } from "next/navigation"
 
-const [name,setName]=useState("")
-const router=useRouter()
+export default function StartJourney() {
 
-return(
-<section className="py-32 text-center">
+  const [name, setName] = useState("")
+  const router = useRouter()
 
-<h2 className="text-4xl mb-6">Start Your Journey</h2>
+  function startProposal() {
+    if (!name) return
+    router.push(`/proposal/${name}`)
+  }
 
-<div className="glass p-8 max-w-md mx-auto">
+  return (
 
-<input
-className="w-full p-3 rounded text-black mb-4"
-placeholder="Enter your name"
-value={name}
-onChange={(e)=>setName(e.target.value)}
-/>
+    <div className="text-center">
 
-<button className="neon-btn w-full" onClick={()=>router.push(`/proposal/${name}`)}>
-Start Journey ❤️
-</button>
+      <h2 className="text-4xl mb-6">Start Your Proposal</h2>
 
-</div>
+      <div className="glass p-8 max-w-md mx-auto">
 
-</section>
-)
+        <input
+          className="w-full p-3 rounded text-black mb-4"
+          placeholder="Enter your name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+
+        <button
+          className="neon-btn w-full"
+          onClick={startProposal}
+        >
+          Start Journey ❤️
+        </button>
+
+      </div>
+
+    </div>
+  )
 }

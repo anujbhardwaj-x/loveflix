@@ -1,41 +1,59 @@
 
 "use client"
+
 import { useState } from "react"
 import NetflixIntro from "../components/NetflixIntro"
+
 import Hero from "../sections/Hero"
 import Features from "../sections/Features"
 import Timeline from "../sections/Timeline"
 import Gallery from "../sections/Gallery"
 import Quiz from "../sections/Quiz"
 import StartJourney from "../sections/StartJourney"
-import Petals from "../components/Petals"
-import ShootingStars from "../components/ShootingStars"
 
-export default function Home(){
+export default function Home() {
 
-const [intro,setIntro]=useState(false)
+  const [introDone, setIntroDone] = useState(false)
 
-return(
+  return (
 
-<div>
+    <div>
 
-{!intro && <NetflixIntro finish={()=>setIntro(true)}/>}
+      {!introDone && (
+        <NetflixIntro finish={() => setIntroDone(true)} />
+      )}
 
-{intro && (
-<>
-<ShootingStars/>
-<Petals/>
-<Hero/>
-<Features/>
-<Timeline/>
-<Gallery/>
-<Quiz/>
-<StartJourney/>
-</>
-)}
+      {introDone && (
+        <>
 
-</div>
+          <section id="hero">
+            <Hero />
+          </section>
 
-)
+          <section id="features" className="py-32">
+            <Features />
+          </section>
 
+          <section id="timeline" className="py-32">
+            <Timeline />
+          </section>
+
+          <section id="gallery" className="py-32">
+            <Gallery />
+          </section>
+
+          <section id="quiz" className="py-32">
+            <Quiz />
+          </section>
+
+          <section id="start" className="py-32">
+            <StartJourney />
+          </section>
+
+        </>
+      )}
+
+    </div>
+
+  )
 }

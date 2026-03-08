@@ -1,19 +1,22 @@
 
-export default function Features(){
-return(
-<section className="py-32 text-center">
+export default function Features() {
 
-<h2 className="text-4xl mb-10">Features</h2>
+  return (
 
-<div className="grid grid-cols-2 gap-8 max-w-3xl mx-auto">
+    <div className="text-center">
 
-<div className="glass p-6">✨ Cinematic Proposal</div>
-<div className="glass p-6">📸 Capture Memories</div>
-<div className="glass p-6">🎮 Interactive Quiz</div>
-<div className="glass p-6">🌌 Romantic Universe</div>
+      <h2 className="text-4xl mb-12">Features</h2>
 
-</div>
+      <div className="grid grid-cols-2 gap-8 max-w-3xl mx-auto">
 
-</section>
-)
+        <div className="glass p-6">🎬 Cinematic Proposal</div>
+        <div className="glass p-6">📸 Capture Memories</div>
+        <div className="glass p-6">🎮 Interactive Quiz</div>
+        <div className="glass p-6">🌌 Romantic Universe</div>
+
+      </div>
+
+    </div>
+
+  )
 }

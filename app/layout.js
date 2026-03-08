@@ -1,14 +1,16 @@
 
 import "./globals.css"
-import CursorMagic from "../components/CursorMagic"
+import Navbar from "../components/Navbar"
 
-export const metadata = { title: "LoveFlix" }
+export const metadata = {
+  title: "LoveFlix"
+}
 
 export default function RootLayout({ children }) {
   return (
     <html>
       <body>
-        <CursorMagic/>
+        <Navbar />
         {children}
       </body>
     </html>
